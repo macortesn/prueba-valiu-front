@@ -24,7 +24,7 @@
       <div class="col-md-4 offset-sm-4">
         <p class="mylabel">Receive</p>
         <div class="inptmult">
-          <multiselect v-on:change="convertAmount" class="multisl" v-model="valueTo" placeholder="Selecciona" label="title" track-by="title" :options="options" :option-height="104" :custom-label="customLabel" :show-labels="false">
+          <multiselect v-on:change="convertAmount" class="multisl" v-model="valueTo" placeholder="Selecciona" label="title" track-by="title" :options="getOptions" :option-height="104" :custom-label="customLabel" :show-labels="false">
             <template slot="singleLabel" slot-scope="props"><img class="option__image" :src="props.option.img"><span class="option__desc"><span class="option__title">{{ props.option.title }}</span></span></template>
             <template slot="option" slot-scope="props"><img class="option__image" :src="props.option.img" alt="No Man’s Sky">
               <div class="option__desc"><span class="option__title">{{ props.option.title }}</span><span class="option__small">{{ props.option.desc }}</span></div>
@@ -75,15 +75,10 @@ export default {
   },
   mounted(){
     this.$store.dispatch('getCountries');
-    // axios.get('https://restcountries.eu/rest/v2/all').then((response) => {
-    //   for (var k in response.data) {
-    //     this.options.push({title: response.data[k].currencies[0].code ,img:response.data[k].flag})
-    //   }
-    // })
   },
   methods: {
     convertAmount(){
-      console.log(API_IP)
+      this.result="";
       if(this.valueFrom != null && this.valueTo != null && this.amount != ""){
           axios.get(API_IP+'/rates/convert',{params:{
             from:this.valueFrom.title,

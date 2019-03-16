@@ -9,7 +9,7 @@ let router = new Router({
   mode:'history',
   routes:[
     {
-      path:'/convert',
+      path:'/',
       name:'convert',
       component: RateConvert
     }
