@@ -42,7 +42,7 @@
 import Multiselect from 'vue-multiselect'
 import axios from 'axios'
 
-var API_IP = "http://35.198.4.18:3000"
+var API_IP = "http://35.247.208.223:3000"
 
 export default {
   components: { Multiselect },
