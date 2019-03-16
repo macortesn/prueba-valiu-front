@@ -5,8 +5,6 @@ import RateConvert from './components/rateConvert.vue'
 
 Vue.use(Router)
 
-
-
 let router = new Router({
   mode:'history',
   routes:[
@@ -16,6 +14,5 @@ let router = new Router({
       component: RateConvert
     }
   ]})
-
 
 export default router
